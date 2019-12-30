@@ -43,6 +43,7 @@ export class LoginComponentComponent implements OnInit {
           });        
       },
       err => {
+	console.log(err)
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
