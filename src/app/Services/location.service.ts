@@ -11,18 +11,21 @@ export class LocationService {
 
   serverlink = "http://104.211.8.64:8086"
 
-  getPosition(): Promise<any>
+  getPosition()
   {
-    return new Promise((resolve, reject) => {
+    // return new Promise((resolve, reject) => {
 
-      navigator.geolocation.getCurrentPosition(resp => {
+    //   navigator.geolocation.getCurrentPosition(resp => {
 
-          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
-        },
-        err => {
-          reject(err);
-        });
-    });
+    //       resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+    //     },
+    //     err => {
+    //       reject(err);
+    //     });
+    // });
+
+    let pos = {lat: 31.3426, lng: -8.4313}
+    return pos;
 
   }
 

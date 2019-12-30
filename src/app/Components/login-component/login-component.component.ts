@@ -26,8 +26,7 @@ export class LoginComponentComponent implements OnInit {
     this.authenticationService.login(email.value, pass.value).subscribe(
       res => {
         this.loading = true
-        this.locationService.getPosition().then(pos=>
-          {
+        let pos = this.locationService.getPosition()
              console.log(`Positon: ${pos.lng} ${pos.lat}`);             
              Swal.fire({
               position: 'top-end',
@@ -39,8 +38,7 @@ export class LoginComponentComponent implements OnInit {
             let jwtToken = res.headers.get('Authorization')
             this.authenticationService.saveToken(jwtToken)
             this.locationService.setPosition(pos.lat, pos.lng).subscribe()
-            this.router.navigate(['/nearBy'])
-          });        
+            this.router.navigate(['/nearBy'])       
       },
       err => {
 	console.log(err)
